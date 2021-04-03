@@ -1,0 +1,8 @@
+Daily News for Stock Market Prediction
+    https://www.kaggle.com/aaron7sun/stocknews
+
+Huge Stock History Market Dataset
+    https://www.kaggle.com/borismarjanovic/price-volume-data-for-all-us-stocks-etfs
+
+Stock Market Dataset
+    https://www.kaggle.com/jacksoncrow/stock-market-dataset
