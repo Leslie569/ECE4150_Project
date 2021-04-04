@@ -583,4 +583,6 @@ c = get_config()
 
 c.NotebookApp.open_browser = False
 
+c.NotebookApp.ip = "*"
+
 c.NotebookApp.port = 8888

@@ -1,6 +1,7 @@
 wget http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
 bash Anaconda3-4.1.1-Linux-x86_64.sh
 source ~/.bashrc
+export PATH="/home/allen/anaconda3/bin:$PATH"
 jupyter-notebook  --generate-config
 cp jupyter_predefined_config.py ~/.jupyter/jupyter_notebook_config.py
 echo -e "\n\nc.NotebookApp.certfile=u'/home/"$USER"/certs/mycert.pem'" >> ~/.jupyter/jupyter_notebook_config.py 
