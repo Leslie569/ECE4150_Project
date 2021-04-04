@@ -1,12 +1,9 @@
 wget http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
 bash Anaconda3-4.1.1-Linux-x86_64.sh
-source ~/.bashrc
-export PATH="/home/allen/anaconda3/bin:$PATH"
-jupyter-notebook  --generate-config
+cd ~
+./anaconda3/jupyter-notebook  --generate-config
 cp jupyter_predefined_config.py ~/.jupyter/jupyter_notebook_config.py
 echo -e "\n\nc.NotebookApp.certfile=u'/home/"$USER"/certs/mycert.pem'" >> ~/.jupyter/jupyter_notebook_config.py 
-
-
 
 cd ~
 mkdir certs
@@ -24,7 +21,6 @@ pip install py4j
 wget http://archive.apache.org/dist/spark/spark-2.0.0/spark-2.0.0-bin-hadoop2.7.tgz
 sudo tar -zxvf spark-2.0.0-bin-hadoop2.7.tgz
 rm spark-2.0.0-bin-hadoop2.7.tgz
-export SPARK_HOME=‘~/spark-2.0.0-bin-hadoop2.7
-export PATH=$SPARK_HOME:$PATH
-export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
-python -m pip install pyspark
+
+echo -e"\nexport SPARK_HOME='~/spark-2.0.0-bin-hadoop2.7'\nexport PATH=$SPARK_HOME:$PATH\nexport PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH" >> ~/.bashrc
+./anaconda3/bin/python -m pip install pyspark
