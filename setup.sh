@@ -4,7 +4,7 @@ rm Anaconda3-4.1.1-Linux-x86_64.sh
 source ~/.bashrc
 jupyter-notebook  --generate-config
 cp jupyter_predefined_config.py ~/.jupyter/jupyter_notebook_config.py
-# echo -e "\n\nc.NotebookApp.certfile=u'/home/"$USER"/certs/mycert.pem'" >> ~/.jupyter/jupyter_notebook_config.py 
+echo -e "\n\nc.NotebookApp.certfile=u'/home/"$USER"/certs/mycert.pem'" >> ~/.jupyter/jupyter_notebook_config.py 
 
 
 
