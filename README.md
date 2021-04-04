@@ -1,3 +1,6 @@
+https://www.notion.so/Report-872f834ffbc74b0aac2cf24ecbb23604
+
+
 # ECE4150_Project
 1.Project can be submitted before April 24, 2021.
 
