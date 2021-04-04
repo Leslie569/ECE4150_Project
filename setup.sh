@@ -1,6 +1,5 @@
 wget http://repo.continuum.io/archive/Anaconda3-4.1.1-Linux-x86_64.sh
 bash Anaconda3-4.1.1-Linux-x86_64.sh
-rm Anaconda3-4.1.1-Linux-x86_64.sh
 source ~/.bashrc
 jupyter-notebook  --generate-config
 cp jupyter_predefined_config.py ~/.jupyter/jupyter_notebook_config.py
@@ -12,6 +11,7 @@ cd ~
 mkdir certs
 cd certs
 sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
+sudo chown ubuntu:ubuntu mycert.pem
 
 cd ~
 sudo apt-get update
