@@ -1,6 +1,13 @@
 import findspark
 findspark.init()
 
-import pyspark
+from pyspark import SparkContext
 
-print("pyspark imported successfully!")
+sc = SparkContext("local", "stock analysis")
+
+lines = sc.textFile("/datasets/Stocks/AAPL.txt")
+
+llist = lines.collect()
+
+for line in llist:
+    print(line)
