@@ -5,7 +5,7 @@ from pyspark import SparkContext
 
 sc = SparkContext("local", "stock analysis")
 
-lines = sc.textFile("/datasets/Stocks/AAPL.txt")
+lines = sc.textFile("./datasets/Stocks/aapl.us.txt")
 
 llist = lines.collect()
 
