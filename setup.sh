@@ -1,27 +1,16 @@
-wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
-bash Anaconda3-2020.11-Linux-x86_64.sh
-cd ~
-./anaconda3/bin/jupyter-notebook  --generate-config
-cp ECE4150_Project/jupyter_predefined_config.py ~/.jupyter/jupyter_notebook_config.py
-echo -e "\n\nc.NotebookApp.certfile=u'/home/"$USER"/certs/mycert.pem'" >> ~/.jupyter/jupyter_notebook_config.py 
-
-cd ~
-mkdir certs
-cd certs
-sudo openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
-sudo chown ubuntu:ubuntu mycert.pem
-
 cd ~
 sudo apt-get update
-sudo apt install default-jre
-sudo apt install scala
+sudo apt install default-jre scala python3-pip -y
 
-conda install pip
-pip install py4j
-
-wget https://www.apache.org/dyn/closer.lua/spark/spark-3.1.1/spark-3.1.1-bin-hadoop2.7.tgz
+wget https://apache.claz.org/spark/spark-3.1.1/spark-3.1.1-bin-hadoop2.7.tgz
 sudo tar -zxvf spark-3.1.1-bin-hadoop2.7.tgz
+mkdir ~/opt
+mv spark-3.1.1-bin-hadoop2.7 ~/opt/spark
+
+echo "export SPARK_HOME=~/opt/spark" >> ~/.bashrc
+echo "export PATH=$PATH:~/opt/spark/bin:~/opt/spark/sbin" >> ~/.bashrc
+echo "export PYSPARK_PYTHON=/usr/bin/python3" >> ~/.bashrc
 rm spark-3.1.1-bin-hadoop2.7.tgz
 
-echo -e "\nexport SPARK_HOME=~/spark-3.1.1-bin-hadoop2.7\nexport PATH=~/spark-3.1.1-bin-hadoop2.7:/home/ubuntu/anaconda3/bin:$PATH\nexport PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH" >> ~/.bashrc
-./anaconda3/bin/python -m pip install --no-cache-dir pyspark
+sudo apt install python3-pip
+python3 -m pip install findspark
