@@ -23,4 +23,4 @@ sudo tar -zxvf spark-2.0.0-bin-hadoop2.7.tgz
 rm spark-2.0.0-bin-hadoop2.7.tgz
 
 echo -e "\nexport SPARK_HOME='~/spark-2.0.0-bin-hadoop2.7'\nexport PATH=$SPARK_HOME:/home/ubuntu/anaconda3/bin:$PATH\nexport PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH" >> ~/.bashrc
-./anaconda3/bin/python -m pip install pyspark
+./anaconda3/bin/python -m pip install --no-cache-dir pyspark
