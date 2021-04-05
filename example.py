@@ -34,4 +34,4 @@ with open("output.txt", "w+") as f:
         up_days = df.filter(df.Open < df.Close).count()
         flat_days = df.filter(df.Open == df.Close).count()
         down_days = df.filter(df.Open > df.Close).count()
-        f.write(f"{stock}, {all_days}, {up_days}, {down_days}, {down_days}\n")
+        f.write(f"{stock}, {all_days}, {up_days}, {flat_days}, {down_days}\n")
