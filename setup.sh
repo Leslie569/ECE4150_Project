@@ -18,9 +18,10 @@ sudo apt install scala
 
 conda install pip
 pip install py4j
-wget http://archive.apache.org/dist/spark/spark-2.0.0/spark-2.0.0-bin-hadoop2.7.tgz
-sudo tar -zxvf spark-2.0.0-bin-hadoop2.7.tgz
-rm spark-2.0.0-bin-hadoop2.7.tgz
 
-echo -e "\nexport SPARK_HOME='~/spark-2.0.0-bin-hadoop2.7'\nexport PATH=$SPARK_HOME:/home/ubuntu/anaconda3/bin:$PATH\nexport PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH" >> ~/.bashrc
+wget https://www.apache.org/dyn/closer.lua/spark/spark-3.1.1/spark-3.1.1-bin-hadoop2.7.tgz
+sudo tar -zxvf spark-3.1.1-bin-hadoop2.7.tgz
+rm spark-3.1.1-bin-hadoop2.7.tgz
+
+echo -e "\nexport SPARK_HOME=~/spark-3.1.1-bin-hadoop2.7\nexport PATH=~/spark-3.1.1-bin-hadoop2.7:/home/ubuntu/anaconda3/bin:$PATH\nexport PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH" >> ~/.bashrc
 ./anaconda3/bin/python -m pip install --no-cache-dir pyspark
