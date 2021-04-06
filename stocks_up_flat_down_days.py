@@ -14,7 +14,7 @@ sqlContext = SQLContext(sc)
 with open("stocks_up_flat_down_output.txt", "w+") as f:
     dataset_location = './datasets/Stocks'
     stocks = os.listdir(dataset_location)
-    f.write("Stock, All Days, Up Days, Flat Days, Down Days")
+    f.write("Stock, All Days, Up Days, Flat Days, Down Days\n")
     for stock in stocks:
         txt = sc.textFile(f"{dataset_location}/{stock}")
         if txt.isEmpty():
