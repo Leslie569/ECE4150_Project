@@ -11,7 +11,7 @@ import os
 sc = SparkContext("local", "Stock Analysis - ECE4150")
 sqlContext = SQLContext(sc)
 
-with open("output.txt", "w+") as f:
+with open("stocks_up_flat_down_output.txt", "w+") as f:
     dataset_location = './datasets/Stocks'
     stocks = os.listdir(dataset_location)
     f.write("Stock, All Days, Up Days, Flat Days, Down Days")
