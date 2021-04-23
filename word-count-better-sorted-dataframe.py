@@ -20,4 +20,4 @@ wordCounts = lowercaseWords.groupBy("word").count()
 wordCountsSorted = wordCounts.sort("count")
 
 # Show the results.
-wordCountsSorted.show(wordCountsSorted.count())
+wordCountsSorted.show(15, wordCountsSorted.count())
