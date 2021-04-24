@@ -1,3 +1,5 @@
+import findspark
+findspark.init()
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as func
 
