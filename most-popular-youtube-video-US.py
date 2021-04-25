@@ -33,7 +33,7 @@ groupVideos = selectVideos.groupBy("title").max("views")
 topVideos = groupVideos.orderBy(func.desc("max(views)"))
 
 # Show the top 10
-topVideos.show(10)
+topVideos.show(10,False)
 
 # Stop the session
 spark.stop()
