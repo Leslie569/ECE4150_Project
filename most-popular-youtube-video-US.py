@@ -27,13 +27,27 @@ videosDF = spark.read.option("sep", ",").schema(schema).csv("./datasets/USvideos
 selectVideos = videosDF.select("title", "views", "thumbnail_link")
 
 # group the videos base on the highest views
-groupVideos = selectVideos.groupBy("title").max("views")
+# groupVideos = selectVideos.groupBy("title").agg(func.max("views").alias('topviews'))
+groupVideos = selectVideos.groupBy("title").agg(func.max("views").alias('views'))
 
 # sort the videos in descending order base on views
-topVideos = groupVideos.orderBy(func.desc("max(views)"))
+# topVideos = groupVideos.orderBy(func.desc("topviews")).limit(10)
+topVideos = groupVideos.orderBy(func.desc("views")).limit(10)
+# topVideos.show()
 
-# Show the top 10
-topVideos.show(10,False)
+# use right join to attach thumbnail_link in the table
+# duplicated title column
+# right_join = selectVideos.join(topVideos,(topVideos.title == selectVideos.title) & \
+#                                 (topVideos.topviews == selectVideos.views), \
+#                                 how='right')
+# sortedTopVideo = right_join.orderBy(func.desc("views")).limit(10)
+# sortedTopVideo.show()
+
+# use inner join based on the title and views
+# no duplicated columns
+inner_join = selectVideos.join(topVideos, ['title','views'])
+sortedTopVideo = inner_join.orderBy(func.desc("views")).limit(10)
+sortedTopVideo.show(10,False)
 
 # Stop the session
 spark.stop()
